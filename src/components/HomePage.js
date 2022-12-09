@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import About from "./About";
 import ArticleList from "./ArticleList";
+import useDocumentTitle from "../hooks/useDocumentTitle";
+import useQuery from "../hooks/useQuery";
 
 function HomePage() {
+  useDocumentTitle();
   // fetch data for posts
+  
   const [isLoaded, setIsLoaded] = useState(false);
   const [posts, setPosts] = useState([]);
+  const { posts, isLoaded } = useQuery();
+
 
   useEffect(() => {
     setIsLoaded(false);

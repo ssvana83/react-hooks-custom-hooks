@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import useDocumentTitle from "../hooks/useDocumentTitle";
 import { makeEmojiList } from "../utils";
 
 function ArticlePage() {
@@ -21,6 +22,7 @@ function ArticlePage() {
 
   // set the document title
   const pageTitle = post ? `Underreacted | ${post.title}` : "Underreacted";
+  useDocumentTitle(pageTitle);
   useEffect(() => {
     document.title = pageTitle;
   }, [pageTitle]);
